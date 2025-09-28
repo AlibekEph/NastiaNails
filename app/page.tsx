@@ -1,7 +1,6 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { Tabs, Tab, Card, CardBody, Chip, Divider } from '@nextui-org/react'
 import { MatchaIcon, CoffeeIcon, TeaIcon, HotIcon, ColdIcon, LeafIcon, SparkleIcon, HeartIcon } from './components/Icons'
 
 interface MenuItem {
@@ -9,7 +8,7 @@ interface MenuItem {
   volume: string
   price: number
   description: string
-  badges?: Array<{ text: string; color: 'default' | 'primary' | 'secondary' | 'success' | 'warning' | 'danger' }>
+  badges?: Array<{ text: string; color: string }>
   icon?: React.ReactNode
   featured?: boolean
 }
@@ -26,7 +25,7 @@ const menuData: MenuCategory[] = [
   {
     id: 'matcha',
     name: 'Матча',
-    icon: <MatchaIcon className="category-icon" />,
+    icon: <MatchaIcon className="w-6 h-6" />,
     color: 'matcha',
     items: [
       {
@@ -34,7 +33,7 @@ const menuData: MenuCategory[] = [
         volume: '250 мл',
         price: 300,
         description: 'Матча премиум-помола, молоко на выбор (коровье/овсяное/кокосовое), естественная сладость без сиропов.',
-        icon: <HotIcon className="drink-icon" />,
+        icon: <HotIcon className="w-5 h-5" />,
         featured: true
       },
       {
@@ -42,30 +41,30 @@ const menuData: MenuCategory[] = [
         volume: '250 мл',
         price: 340,
         description: 'Нежная кремовость кокоса подчёркивает травянистые ноты матчи.',
-        icon: <HeartIcon className="drink-icon" />
+        icon: <HeartIcon className="w-5 h-5" />
       },
       {
         name: 'Айс-матча',
         volume: '350 мл',
         price: 320,
         description: 'Освежающая холодная матча на молоке, лёд.',
-        badges: [{ text: 'холодный', color: 'primary' }],
-        icon: <ColdIcon className="drink-icon" />
+        badges: [{ text: 'холодный', color: 'blue' }],
+        icon: <ColdIcon className="w-5 h-5" />
       },
       {
         name: 'Матча-тоник',
         volume: '350 мл',
         price: 340,
         description: 'Матча + тоник, цитрусовые нотки и лёгкая горчинка.',
-        badges: [{ text: 'холодный', color: 'primary' }],
-        icon: <SparkleIcon className="drink-icon" />
+        badges: [{ text: 'холодный', color: 'blue' }],
+        icon: <SparkleIcon className="w-5 h-5" />
       },
       {
         name: 'Дёрти-матча',
         volume: '300 мл',
         price: 360,
         description: 'Сочетание матчи и шота эспрессо — бодро и ярко.',
-        icon: <HotIcon className="drink-icon" />,
+        icon: <HotIcon className="w-5 h-5" />,
         featured: true
       },
       {
@@ -73,8 +72,8 @@ const menuData: MenuCategory[] = [
         volume: '300 мл',
         price: 360,
         description: 'Матча, кокосовое молоко, немного сливок, лёд; сверху — кокосовая стружка.',
-        badges: [{ text: 'холодный', color: 'primary' }],
-        icon: <ColdIcon className="drink-icon" />,
+        badges: [{ text: 'холодный', color: 'blue' }],
+        icon: <ColdIcon className="w-5 h-5" />,
         featured: true
       }
     ]
@@ -82,7 +81,7 @@ const menuData: MenuCategory[] = [
   {
     id: 'coffee',
     name: 'Кофе',
-    icon: <CoffeeIcon className="category-icon" />,
+    icon: <CoffeeIcon className="w-6 h-6" />,
     color: 'coffee',
     items: [
       {
@@ -90,7 +89,7 @@ const menuData: MenuCategory[] = [
         volume: '40 мл',
         price: 160,
         description: 'Насыщенный шот арабики, шоколадно-ореховый профиль.',
-        icon: <HotIcon className="drink-icon" />,
+        icon: <HotIcon className="w-5 h-5" />,
         featured: true
       },
       {
@@ -104,7 +103,7 @@ const menuData: MenuCategory[] = [
         volume: '300 мл',
         price: 240,
         description: 'Эспрессо и бархатная молочная пена, сбалансированная сладость.',
-        icon: <HeartIcon className="drink-icon" />
+        icon: <HeartIcon className="w-5 h-5" />
       },
       {
         name: 'Латте',
@@ -135,8 +134,8 @@ const menuData: MenuCategory[] = [
         volume: '350 мл',
         price: 300,
         description: 'Игривый цитрусовый драйв и искристая свежесть.',
-        badges: [{ text: 'холодный', color: 'primary' }],
-        icon: <ColdIcon className="drink-icon" />,
+        badges: [{ text: 'холодный', color: 'blue' }],
+        icon: <ColdIcon className="w-5 h-5" />,
         featured: true
       }
     ]
@@ -144,7 +143,7 @@ const menuData: MenuCategory[] = [
   {
     id: 'tea',
     name: 'Чай',
-    icon: <TeaIcon className="category-icon" />,
+    icon: <TeaIcon className="w-6 h-6" />,
     color: 'tea',
     items: [
       {
@@ -152,7 +151,7 @@ const menuData: MenuCategory[] = [
         volume: '400 мл',
         price: 180,
         description: 'Классический крепкий вкус с мягкой терпкостью.',
-        icon: <HotIcon className="drink-icon" />
+        icon: <HotIcon className="w-5 h-5" />
       },
       {
         name: 'Эрл Грей',
@@ -171,7 +170,7 @@ const menuData: MenuCategory[] = [
         volume: '400 мл',
         price: 200,
         description: 'Цветочный аромат и деликатная сладость.',
-        icon: <SparkleIcon className="drink-icon" />,
+        icon: <SparkleIcon className="w-5 h-5" />,
         featured: true
       },
       {
@@ -179,8 +178,8 @@ const menuData: MenuCategory[] = [
         volume: '400 мл, без кофеина',
         price: 200,
         description: 'Мята и лёгкая свежесть — расслабляет и тонизирует.',
-        badges: [{ text: 'без кофеина', color: 'success' }],
-        icon: <LeafIcon className="drink-icon" />
+        badges: [{ text: 'без кофеина', color: 'green' }],
+        icon: <LeafIcon className="w-5 h-5" />
       }
     ]
   }
@@ -199,15 +198,13 @@ export default function MenuPage() {
   const [activeTab, setActiveTab] = useState<string>('matcha')
 
   useEffect(() => {
-    // Синхронизация с hash при загрузке
     const hash = window.location.hash.replace('#', '')
     if (hash && ['matcha', 'coffee', 'tea'].includes(hash)) {
       setActiveTab(hash)
     }
   }, [])
 
-  const handleTabChange = (key: string | number) => {
-    const tabKey = key.toString()
+  const handleTabChange = (tabKey: string) => {
     setActiveTab(tabKey)
     window.history.replaceState(null, '', `#${tabKey}`)
   }
@@ -235,31 +232,23 @@ export default function MenuPage() {
       {/* Main Content */}
       <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pb-12">
         {/* Tabs Navigation */}
-        <div className="sticky top-[65px] z-40 bg-secondary/90 backdrop-blur-sm py-4 -mx-4 sm:-mx-6 lg:-mx-8 px-4 sm:px-6 lg:px-8 border-b border-text/[0.08]">
-          <Tabs
-            aria-label="Категории меню"
-            selectedKey={activeTab}
-            onSelectionChange={handleTabChange}
-            variant="underlined"
-            classNames={{
-              tabList: "gap-6 w-full relative rounded-none p-0 border-b border-divider overflow-x-auto",
-              cursor: "w-full bg-primary",
-              tab: "max-w-fit px-0 h-12 whitespace-nowrap",
-              tabContent: "group-data-[selected=true]:text-primary font-medium text-base sm:text-lg"
-            }}
-          >
+        <div className="sticky top-[88px] z-40 bg-secondary/90 backdrop-blur-sm py-4 -mx-4 sm:-mx-6 lg:-mx-8 px-4 sm:px-6 lg:px-8 border-b border-text/[0.08]">
+          <div className="flex space-x-8 overflow-x-auto">
             {menuData.map((category) => (
-              <Tab 
-                key={category.id} 
-                title={
-                  <div className="flex items-center">
-                    {category.icon}
-                    <span>{category.name}</span>
-                  </div>
-                }
-              />
+              <button
+                key={category.id}
+                onClick={() => handleTabChange(category.id)}
+                className={`flex items-center space-x-2 px-4 py-2 rounded-lg font-medium transition-all duration-200 whitespace-nowrap ${
+                  activeTab === category.id
+                    ? 'bg-primary text-white shadow-lg'
+                    : 'text-text hover:bg-primary/10'
+                }`}
+              >
+                {category.icon}
+                <span>{category.name}</span>
+              </button>
             ))}
-          </Tabs>
+          </div>
         </div>
 
         {/* Tab Content */}
@@ -268,18 +257,18 @@ export default function MenuPage() {
             activeTab === category.id && (
               <div key={category.id} className="tab-content space-y-4">
                 {category.items.map((item, index) => (
-                  <Card key={index} className={`menu-card ${getCategoryGradient(category.id)} ${item.featured ? 'ring-2 ring-primary/20' : ''}`}>
-                    <CardBody className="p-4 sm:p-5 relative">
-                      {item.featured && (
-                        <div className="absolute top-2 right-2">
-                          <SparkleIcon className="w-5 h-5 text-primary animate-pulse" />
-                        </div>
-                      )}
+                  <div key={index} className={`menu-card ${getCategoryGradient(category.id)} ${item.featured ? 'ring-2 ring-primary/20' : ''} relative`}>
+                    {item.featured && (
+                      <div className="absolute top-2 right-2">
+                        <SparkleIcon className="w-5 h-5 text-primary animate-pulse" />
+                      </div>
+                    )}
+                    <div className="p-4 sm:p-5">
                       <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2 mb-3">
                         <div className="flex-1">
                           <div className="flex items-center gap-2 mb-1">
                             {item.icon}
-                            <h3 className="text-lg sm:text-xl font-display font-medium text-text text-balance">
+                            <h3 className="text-lg sm:text-xl font-display font-medium text-text">
                               {item.name}
                             </h3>
                           </div>
@@ -299,26 +288,21 @@ export default function MenuPage() {
                       {item.badges && item.badges.length > 0 && (
                         <div className="flex flex-wrap gap-2">
                           {item.badges.map((badge, badgeIndex) => (
-                            <Chip
+                            <span
                               key={badgeIndex}
-                              size="sm"
-                              variant="bordered"
-                              classNames={{
-                                base: badge.color === 'primary' 
-                                  ? "border-info/30 bg-info/10" 
-                                  : "border-success/30 bg-success/10",
-                                content: badge.color === 'primary' 
-                                  ? "text-info font-medium" 
-                                  : "text-success font-medium"
-                              }}
+                              className={`px-3 py-1 rounded-full text-xs font-medium border ${
+                                badge.color === 'blue' 
+                                  ? 'border-info/30 bg-info/10 text-info' 
+                                  : 'border-success/30 bg-success/10 text-success'
+                              }`}
                             >
                               {badge.text}
-                            </Chip>
+                            </span>
                           ))}
                         </div>
                       )}
-                    </CardBody>
-                  </Card>
+                    </div>
+                  </div>
                 ))}
               </div>
             )
@@ -327,7 +311,7 @@ export default function MenuPage() {
 
         {/* Modifiers Section */}
         <div id="modifiers" className="mt-12">
-          <Divider className="my-8 bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
+          <div className="h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent my-8"></div>
           <div className="space-y-6">
             <h2 className="text-2xl sm:text-3xl font-display font-semibold text-transparent bg-clip-text bg-gradient-to-r from-primary via-coffee to-tea text-center floating-animation">
               🎨 Модификаторы 🎨
@@ -335,8 +319,8 @@ export default function MenuPage() {
             
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {modifiers.map((modifier, index) => (
-                <Card key={index} className="menu-card bg-gradient-to-r from-white/80 to-accent/10 hover:from-white/90 hover:to-accent/20 transition-all duration-300">
-                  <CardBody className="p-4">
+                <div key={index} className="menu-card bg-gradient-to-r from-white/80 to-accent/10 hover:from-white/90 hover:to-accent/20 transition-all duration-300">
+                  <div className="p-4">
                     <div className="flex justify-between items-center">
                       <div className="flex items-center gap-2">
                         <SparkleIcon className="w-4 h-4 text-primary/70" />
@@ -348,8 +332,8 @@ export default function MenuPage() {
                         {modifier.price === 0 ? '0 ₽' : `+${modifier.price} ₽`}
                       </span>
                     </div>
-                  </CardBody>
-                </Card>
+                  </div>
+                </div>
               ))}
             </div>
           </div>
