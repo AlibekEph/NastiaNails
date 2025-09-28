@@ -1,6 +1,7 @@
-import type { Config } from 'tailwindcss'
+const { fontFamily } = require('tailwindcss/defaultTheme')
 
-const config: Config = {
+/** @type {import('tailwindcss').Config} */
+const config = {
   content: [
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
     './components/**/*.{js,ts,jsx,tsx,mdx}',
@@ -27,20 +28,20 @@ const config: Config = {
         mint: '#98FB98'
       },
       fontFamily: {
-        'display': ['Playfair Display', 'serif'],
-        'body': ['Inter', 'sans-serif']
+        display: ['Playfair Display', 'serif'],
+        body: ['Inter', 'sans-serif'],
       },
       borderRadius: {
-        'card': '14px'
+        card: '14px'
       },
       boxShadow: {
-        'card': '0 2px 8px rgba(43, 43, 43, 0.08)',
+        card: '0 2px 8px rgba(43, 43, 43, 0.08)',
         'card-hover': '0 4px 12px rgba(43, 43, 43, 0.12)'
       }
     }
   },
-  darkMode: "class",
+  darkMode: 'class',
   plugins: []
 }
 
-export default config
+module.exports = config
