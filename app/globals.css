@@ -10,6 +10,130 @@ body {
   background-color: #FFF1E6;
 }
 
+.bg-secondary {
+  background-color: #FFF1E6 !important;
+}
+
+.text-text {
+  color: #2A2A2A !important;
+}
+
+.bg-primary {
+  background-color: #7BC67B !important;
+}
+
+.text-primary {
+  color: #7BC67B !important;
+}
+
+.text-info {
+  color: #87C0F2 !important;
+}
+
+.text-success {
+  color: #67C587 !important;
+}
+
+.border-info\/30 {
+  border-color: rgba(135, 192, 242, 0.3) !important;
+}
+
+.bg-info\/10 {
+  background-color: rgba(135, 192, 242, 0.1) !important;
+}
+
+.border-success\/30 {
+  border-color: rgba(103, 197, 135, 0.3) !important;
+}
+
+.bg-success\/10 {
+  background-color: rgba(103, 197, 135, 0.1) !important;
+}
+
+.from-dark {
+  --tw-gradient-from: #3B2F2F !important;
+}
+
+.via-coffee {
+  --tw-gradient-via: #8B4513 !important;
+}
+
+.to-primary {
+  --tw-gradient-to: #7BC67B !important;
+}
+
+.from-primary {
+  --tw-gradient-from: #7BC67B !important;
+}
+
+.via-coffee {
+  --tw-gradient-via: #8B4513 !important;
+}
+
+.to-tea {
+  --tw-gradient-to: #90EE90 !important;
+}
+
+.from-orange {
+  --tw-gradient-from: #FF8C69 !important;
+}
+
+.to-warm {
+  --tw-gradient-to: #FFB347 !important;
+}
+
+.from-secondary {
+  --tw-gradient-from: #FFF1E6 !important;
+}
+
+.to-accent\/20 {
+  --tw-gradient-to: rgba(247, 198, 213, 0.2) !important;
+}
+
+.bg-secondary\/90 {
+  background-color: rgba(255, 241, 230, 0.9) !important;
+}
+
+.border-text\/\[0\.08\] {
+  border-color: rgba(42, 42, 42, 0.08) !important;
+}
+
+.text-text\/60 {
+  color: rgba(42, 42, 42, 0.6) !important;
+}
+
+.text-text\/80 {
+  color: rgba(42, 42, 42, 0.8) !important;
+}
+
+.ring-primary\/20 {
+  --tw-ring-color: rgba(123, 198, 123, 0.2) !important;
+}
+
+.text-primary\/70 {
+  color: rgba(123, 198, 123, 0.7) !important;
+}
+
+.hover\:bg-primary\/10:hover {
+  background-color: rgba(123, 198, 123, 0.1) !important;
+}
+
+.from-white\/80 {
+  --tw-gradient-from: rgba(255, 255, 255, 0.8) !important;
+}
+
+.to-accent\/10 {
+  --tw-gradient-to: rgba(247, 198, 213, 0.1) !important;
+}
+
+.hover\:from-white\/90:hover {
+  --tw-gradient-from: rgba(255, 255, 255, 0.9) !important;
+}
+
+.hover\:to-accent\/20:hover {
+  --tw-gradient-to: rgba(247, 198, 213, 0.2) !important;
+}
+
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Playfair Display', serif;
   font-weight: 600;
