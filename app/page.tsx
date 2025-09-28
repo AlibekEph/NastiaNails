@@ -232,7 +232,7 @@ export default function MenuPage() {
       {/* Main Content */}
       <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pb-12">
         {/* Tabs Navigation */}
-        <div className="sticky top-[88px] z-40 bg-secondary/90 backdrop-blur-sm py-4 -mx-4 sm:-mx-6 lg:-mx-8 px-4 sm:px-6 lg:px-8 border-b border-text/[0.08]">
+        <div className="sticky top-[65px] z-40 bg-secondary/90 backdrop-blur-sm py-4 -mx-4 sm:-mx-6 lg:-mx-8 px-4 sm:px-6 lg:px-8 border-b border-text/[0.08]">
           <div className="flex space-x-8 overflow-x-auto">
             {menuData.map((category) => (
               <button
