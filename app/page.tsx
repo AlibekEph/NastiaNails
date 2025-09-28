@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { Tabs, Tab, Card, CardBody, Chip, Divider } from '@heroui/react'
+import { Tabs, Tab, Card, CardBody, Chip, Divider } from '@nextui-org/react'
 import { MatchaIcon, CoffeeIcon, TeaIcon, HotIcon, ColdIcon, LeafIcon, SparkleIcon, HeartIcon } from './components/Icons'
 
 interface MenuItem {
